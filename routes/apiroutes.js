@@ -36,21 +36,27 @@ var fs = require("fs");
 
       app.delete("/api/notes/:id", function(req, res) {
       var deleteNote = req.params.id;
-      var note = req.body;
+      //var note = req.body;
+
+      // var note = db.filter(note => {
+      //   return note.id == deleteNote;
+      // })[3];
+      //var index = db.indexOf(note);
+      
         //console.log(deleteNote);
 
         
-        //var newArr = db.splice(deleteNote, 1);
-        //console.log(newArr);
+        var newArr = db.splice(deleteNote, 1);
+        console.log(newArr);
         //console.log(db);
 
-        delete db[deleteNote];
+       // delete db[deleteNote];
         console.log(db);
         //console.log(d)
         //var idk = db.push(newArr);
         //console.log(idk);
         //console.log("Deleted note with id "+req.params.id);
-       res.join(db);
+       res.json(db);
     });
 
   
