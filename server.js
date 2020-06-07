@@ -14,16 +14,6 @@ app.use(express.json());
 
 //sever static content for the app from the "public" directory in the app
 app.use(express.static("public"));
-// Tables (DATA)
-// =============================================================
-var notes = [
-  {
-    // customerName: "Ahmed",
-    // customerEmail: "afhaque89@gmail.com",
-    // customerID: "afhaque89",
-    // phoneNumber: "979-587-0887"
-  }
-];
 
 // Routes
 // =============================================================
