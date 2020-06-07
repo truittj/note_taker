@@ -1,5 +1,4 @@
 var db = require("../db/db");
-var fs = require("fs");
 
 
  module.exports= function(app){
@@ -18,7 +17,6 @@ var fs = require("fs");
         var newNote = req.body;
         newNote.id=db.length;
       
-        //console.log(newNote);
       
         // We then add the json the user sent to the character array
         db.push(newNote);
@@ -27,35 +25,13 @@ var fs = require("fs");
         res.json(db);
       });
 
-      app.get("/api/notes/id", function(req, res) {
-      //return res.json(notes[req.params.id]);
-      res.json(db);
-      //console.log(db);
-
-      });
 
       app.delete("/api/notes/:id", function(req, res) {
-      var deleteNote = req.params.id;
-      //var note = req.body;
-
-      // var note = db.filter(note => {
-      //   return note.id == deleteNote;
-      // })[3];
-      //var index = db.indexOf(note);
-      
-        //console.log(deleteNote);
-
-        
-        var newArr = db.splice(deleteNote, 1);
-        console.log(newArr);
-        //console.log(db);
-
-       // delete db[deleteNote];
-        console.log(db);
-        //console.log(d)
-        //var idk = db.push(newArr);
-        //console.log(idk);
-        //console.log("Deleted note with id "+req.params.id);
+      var deleteNote = req.params.id;      
+        db.splice(deleteNote, 1);
+       
+       
+        console.log("Deleted note with id "+ deleteNote);
        res.json(db);
     });
 
