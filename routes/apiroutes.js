@@ -1,5 +1,6 @@
 var db = require("../db/db");
-
+var fs = require("fs");
+console.log(db);
 
  module.exports= function(app){
   
@@ -28,11 +29,16 @@ var db = require("../db/db");
 
       app.delete("/api/notes/:id", function(req, res) {
       var deleteNote = req.params.id;      
-        db.splice(deleteNote, 1);
+        db = db.filter((item) => {
+          return item.id !==parseInt(deleteNote);
+        });
+
+        console.log(db);
+        res.json(db);
+      //db.splice(deleteNote, 1);
        
        
-        console.log("Deleted note with id "+ deleteNote);
-       res.json(db);
+       
     });
 
   
