@@ -9,7 +9,6 @@ console.log(db);
       });
       
       
-      // Displays a single character, or returns false
       app.get("/api/:notes", function(req, res) {
         return res.json(false);
       });
@@ -19,10 +18,8 @@ console.log(db);
         newNote.id=db.length;
       
       
-        // We then add the json the user sent to the character array
         db.push(newNote);
       
-        // We then display the JSON to the users
         res.json(db);
       });
 
@@ -35,7 +32,6 @@ console.log(db);
 
         console.log(db);
         res.json(db);
-      //db.splice(deleteNote, 1);
        
        
        
